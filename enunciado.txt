@@ -1,0 +1,77 @@
+EJERCICIOS PARCIAL 1 (7 pts)
+
+Indicaciones generales:
+Debe ingresar a la siguiente ruta: https://daas.ues.edu.sv/estudiante/
+
+En el formulario de inicio de sesión deberá colocar las credenciales del expediente en línea,
+una vez iniciada la sesión entrara a un sistema operativo virtualizado de la distro de debian 12 de GNU/LINUX.
+
+Una vez dentro del sistema operativo entre a la consola dando clic en actividades y luego busque la terminal. una vez dentro de la terminar usted estará en el directorio ues@tpi155-p-2025-gt-1-examen-parcial-1-aa23026: de ahí debe de buscar la carpeta Downloads y entrar, una vez dentro encontrará una carpeta llamada examen_parcial. En esa carpeta se encuentran 4 archivos, uno es el dockerfile que debe de rellenar, y tres archivos php para los ejercicios de php. Si, la máquina ya tiene instalado Visual Studio Code, también se recomienda no agregar nuevos archivos debido a que no tendrá permisos para poder modificarlo.
+Cualquier comando que se desee ejecutar en la terminal debe de llevar la palabra sudo al inicio.
+
+Configuración del entorno parte 1
+
+Ejercicio 1 (1 pts)
+Debe realizar la configuración del entorno de trabajo para lo cual debe crear un contenedor de docker a partir de una imagen que se cree a partir de un docker fila que contenga lo siguiente.
+
+Image base a utilizar
+php:8.2-apache
+comandos a ejecutar
+docker-php-ext-install pdo pdo_mysql mysqli
+a2enmod rewrite
+printf "<Directory /var/www/html>\nOptions Indexes FollowSymLinks\nAllowOverride All\nRequire all granted\n</Directory>\n" \ > /etc/apache2/conf-available/z-override.conf \ && a2enconf z-override
+Debe establecer el directorio de trabajo en 
+/var/www/html
+El puerto que debe exponer es
+80
+
+Ejecute el comando necesario para crear la imagen, la cual debe colocarle como nombre su número de carnet seguido de server-php
+
+Ejercicio 2 (0.5 pts)
+Una vez creada la imagen debe crear un contenedor donde debe configurar:
+El puerto de enlace.
+el contenedor debe de crearse en modo detach
+El volumen asociado a la carpeta de trabajo.
+el nombre del contenedor debe ser su número de carnet seguido de -contenedor-server
+
+Ejercicio 3 (0.5 pts)
+Una vez configura el contenedor y la imagen en la carpeta de trabajo deberá crear un repositorio de git, git se encuentra instalado pero no están configurada las variables de globales de nombre de usuario y correo por lo que debe realizar dicha configuración. una vez registrado debe crear el repositorio y enlazarlo con un repositorio de github, una vez hecha la configuración, debería estar haciendo commits para la revisión del historial de su trabajo, los commits deben de llevar etiquetas y comentarios descriptivos, no puede hacer un solo commit.
+
+
+Ejercicios de php
+
+Se desea maquetar un sitio web dinámico, donde se muestran los personajes de la película shrek, 
+en dicha página se desea mostrar un menú con las categorías, 
+las cuales son: personajes principales, villanos, amigos de shrek, y personajes secundarios, 
+dichas categorías deben estar parametrizadas en un arreglo y mostrarlas dinámicamente 
+en pantalla, además de el menú se debe mostrar la lista de todos los personajes que 
+se encuentran en la carpeta de imágenes en la carpeta examen_parcial, cada personaje 
+deberá mostrar una imagen, nombre, descripción, y categoría.
+
+Las categorías deberán servir para filtrar la lista de personajes que 
+coinciden con la categoría seleccionada.y una vez aplicado el filtro se 
+deberá mostrar solamente los personajes que coinciden con la búsqueda. (2.5 pts)
+
+https://drive.google.com/drive/folders/1DKgr0moXqhidRdH1IbH-Sv2PgGYTneKT?usp=sharing
+
+
+
+Conversor de temperaturas: Cree un script en php que permita ingresar una temperatura
+ y seleccionar que tipo de conversión desea hacer si de celsius a fahrenheit o viceversa.
+  El programa debe estar validado para que sólo permita el ingreso de números decimales,
+   dicha validación se debe realizar con php y retornar mensajes de error si no se cumplen
+    las validaciones, si las validaciones se cumplen debe mostrar el resultado según la 
+    conversión que se seleccionó. (1 pts).
+
+Redacta en PHP un script que, partiendo del arreglo $compras dado 
+(con producto, precio y cantidad) considera que el precio no incluye IVA 
+y los datos ya deben estar definidos en el arreglo, muestre una tabla HTML
+ con columnas Producto, Precio, Cantidad, y Subtotal calculado 
+ como precio * cantidad,, calcula y muestra debajo de la tabla: el subtotal, 
+ el IVA (13%) aplicado a los productos, un descuento por volumen del 5% 
+ si la cantidad de un producto ≥ 5 (reflejado en el subtotal de esa fila),
+  un cupón opcional ingresado por el usuario (por ejemplo, código AHORRO10 que 
+  descuente 10% del subtotal antes de IVA, y ENVIOGRATIS que elimine el costo de envío), y 
+  un costo de envío fijo de $2.99 que se cobra solo si el subtotal tras d
+  escuentos es menor a $25; finalmente muestra el total a pagar y todos los
+   importes. (1.5 pts)
