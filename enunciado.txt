@@ -75,3 +75,20 @@ y los datos ya deben estar definidos en el arreglo, muestre una tabla HTML
   un costo de envío fijo de $2.99 que se cobra solo si el subtotal tras d
   escuentos es menor a $25; finalmente muestra el total a pagar y todos los
    importes. (1.5 pts)
+
+
+Crea un script en PHP que utilice un arreglo llamado $compras, donde cada elemento tiene producto, precio y cantidad (el precio no incluye IVA). El script debe:
+
+Mostrar una tabla HTML con las columnas: Producto, Precio, Cantidad y Subtotal (precio × cantidad).
+Debajo de la tabla, mostrar:
+El subtotal general.
+El IVA (13%) calculado sobre el subtotal.
+Un descuento del 5% en el subtotal de cada producto si la cantidad es mayor o igual a 5.
+Un campo para que el usuario ingrese un cupón opcional:
+Si el cupón es "AHORRO10", descuenta el 10% del subtotal antes de IVA.
+Si el cupón es "ENVIOGRATIS", elimina el costo de envío.
+Un costo de envío fijo de $2.99, que solo se cobra si el subtotal después de descuentos es menor a $25.
+Finalmente, mostrar el total a pagar y todos los importes calculados.
+
+
+
